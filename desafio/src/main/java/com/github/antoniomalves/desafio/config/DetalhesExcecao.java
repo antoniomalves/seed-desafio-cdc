@@ -1,4 +1,4 @@
-package com.github.antoniomalves.desafio.infra.config.handler;
+package com.github.antoniomalves.desafio.config;
 
 public class DetalhesExcecao {
 

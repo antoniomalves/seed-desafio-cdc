@@ -1,4 +1,4 @@
-package com.github.antoniomalves.desafio.infra.config.handler;
+package com.github.antoniomalves.desafio.config;
 
 import java.util.Date;
 
@@ -7,21 +7,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.github.antoniomalves.desafio.dominio.exceptions.EmailInvalidException;
-
 
 @ControllerAdvice
 public class RestExceptionHandler {
 
-	@ExceptionHandler(EmailInvalidException.class)
-	public ResponseEntity<?> handleResourceNotFoundException(EmailInvalidException emailInvalidoException){
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<?> handleResourceNotFoundException(IllegalArgumentException illegalArgumentException){
 		
 		DetalhesExcecao exceptionDetail = new DetalhesExcecao(
-				"Convenente não encontrada",
+				"Parâmetro de entrada incorreto. Verifique os valores enviados na requisição.",
 				HttpStatus.BAD_REQUEST.value(),
-				emailInvalidoException.getClass().getName(),
+				illegalArgumentException.getClass().getName(),
 				new Date().getTime(),
-				emailInvalidoException.getMessage()
+				illegalArgumentException.getMessage()
 				);
 
 		return new ResponseEntity<>(exceptionDetail, HttpStatus.BAD_REQUEST);
