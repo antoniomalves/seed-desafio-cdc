@@ -1,0 +1,8 @@
+CREATE TABLE autor (
+  id BIGINT AUTO_INCREMENT  PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  descricao VARCHAR(400) DEFAULT NULL
+  data_hora_registro  TIMESTAMP NOT NULL
+);
+
