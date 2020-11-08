@@ -36,10 +36,11 @@ public class AutorResource {
 
 	@PostMapping("/autores")
 	@Transactional
-	public ResponseEntity<Autor> criarAutor(@RequestBody @Valid AutorRequest request){
+	public ResponseEntity<AutorRequest> criarAutor(@RequestBody @Valid AutorRequest request){
 		Autor autor = request.toModel();
 		manager.persist(autor);
-		return ResponseEntity.ok(autor);
+		AutorRequest autorRequest = request.modelToAutorRequest(autor);
+		return ResponseEntity.ok(autorRequest);
 	}
 
 	

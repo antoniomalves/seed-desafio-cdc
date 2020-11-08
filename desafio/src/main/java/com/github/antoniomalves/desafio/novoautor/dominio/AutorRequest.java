@@ -35,5 +35,10 @@ public class AutorRequest {
 	public Autor toModel() {
 		return new Autor(this.nome, this.email, this.descricao);
 	}
+
+
+	public AutorRequest modelToAutorRequest(Autor autor) {
+		return new AutorRequest(autor.getNome(), autor.getEmail(), autor.getDescricao());
+	}
 	
 }
