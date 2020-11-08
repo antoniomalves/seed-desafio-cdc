@@ -6,7 +6,8 @@ import javax.validation.constraints.Size;
 
 
 public class AutorRequest {
-
+	
+	
 	@NotBlank
 	private String nome;
 	
@@ -24,6 +25,11 @@ public class AutorRequest {
 		this.nome = nome;
 		this.email = email;
 		this.descricao = descricao;
+	}
+	
+	
+	public String getEmail() {
+		return email;
 	}
 
 	public Autor toModel() {

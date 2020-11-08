@@ -34,6 +34,7 @@ public class Autor {
 	@JsonFormat(pattern="dd/MM/yyyy HH:mm:ss")
 	private LocalDateTime dataHoraRegistro;
 	
+	@Deprecated
 	public Autor() {}
 
 	public Autor(@NotBlank String nome, 
