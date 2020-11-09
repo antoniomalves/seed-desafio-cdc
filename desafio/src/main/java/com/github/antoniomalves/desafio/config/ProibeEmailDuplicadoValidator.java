@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.github.antoniomalves.desafio.novoautor.dominio.Autor;
-import com.github.antoniomalves.desafio.novoautor.dominio.AutorRepository;
-import com.github.antoniomalves.desafio.novoautor.dominio.AutorRequest;
+import com.github.antoniomalves.desafio.dominio.autor.Autor;
+import com.github.antoniomalves.desafio.dominio.autor.AutorRepository;
+import com.github.antoniomalves.desafio.dominio.autor.AutorRequest;
 
 @Component
 public class ProibeEmailDuplicadoValidator implements Validator{

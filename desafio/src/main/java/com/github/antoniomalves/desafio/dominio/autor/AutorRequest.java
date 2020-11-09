@@ -1,4 +1,4 @@
-package com.github.antoniomalves.desafio.novoautor.dominio;
+package com.github.antoniomalves.desafio.dominio.autor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

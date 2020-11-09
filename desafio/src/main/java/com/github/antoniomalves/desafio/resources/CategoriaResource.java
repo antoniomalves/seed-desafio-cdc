@@ -14,34 +14,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.antoniomalves.desafio.config.ProibeEmailDuplicadoValidator;
-import com.github.antoniomalves.desafio.dominio.autor.Autor;
-import com.github.antoniomalves.desafio.dominio.autor.AutorRequest;
-
+import com.github.antoniomalves.desafio.config.ProibeNomeCategoriaDuplicadoValidator;
+import com.github.antoniomalves.desafio.dominio.categoria.Categoria;
+import com.github.antoniomalves.desafio.dominio.categoria.CategoriaRequest;
 
 @RestController
 @RequestMapping("/api/desafio")
-public class AutorResource {
+public class CategoriaResource {
 	
 	@PersistenceContext
 	private EntityManager manager;
 	
 	@Autowired
-	private ProibeEmailDuplicadoValidator proibeEmailDuplicadoValidator;
+	private ProibeNomeCategoriaDuplicadoValidator proibeNomeCategoriaDuplicadoValidator;
 	
 	@InitBinder
 	public void init(WebDataBinder binder) {
-		binder.addValidators(proibeEmailDuplicadoValidator);
+		binder.addValidators(proibeNomeCategoriaDuplicadoValidator);
 	}
 
-	@PostMapping("/autores")
+	@PostMapping("/categorias")
 	@Transactional
-	public ResponseEntity<AutorRequest> criarAutor(@RequestBody @Valid AutorRequest request){
-		Autor autor = request.toModel();
-		manager.persist(autor);
+	public ResponseEntity<CategoriaRequest> criarCategoria(@RequestBody @Valid CategoriaRequest request) {
+		Categoria categoria = request.toModel();
+		manager.persist(categoria);
 		return ResponseEntity.ok(request);
 	}
-
-	
 	
 }

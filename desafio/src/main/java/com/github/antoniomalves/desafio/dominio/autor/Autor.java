@@ -1,4 +1,4 @@
-package com.github.antoniomalves.desafio.novoautor.dominio;
+package com.github.antoniomalves.desafio.dominio.autor;
 
 import java.time.LocalDateTime;
 
